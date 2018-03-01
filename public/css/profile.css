@@ -1,0 +1,82 @@
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+.chat{
+	height: 75px;
+	width: auto;
+}
+.chat_left > p{
+	border-radius: 1.3em;
+	background-color: #d9edf7;
+	color: black;
+	clear: left;
+	float: left;
+	padding: 5px;
+	margin-left: 10px;
+}
+.chat_left{
+	padding-left: 10px;
+	clear: left;
+	float: left;
+	max-width: 350px;
+}
+.chat_right{
+	padding-right: 10px;
+	clear: right;
+	float: right;
+	max-width: 350px;
+}
+.chat_right >p{
+	border-radius: 1.3em;
+	background-color:#8f35e3;
+	color: white;
+	clear: right;
+	float: right;
+	padding: 5px;
+	margin-right: 10px;
+	
+}
+.chat_right >h5{
+	padding-right: 10px;
+	clear: right;
+	float: right;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.chat_left >h5{
+	padding-left: 10px;
+	clear: left;
+	float: left;
+	font-weight: bold;
+	text-decoration: underline;
+}
