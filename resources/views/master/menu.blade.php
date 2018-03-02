@@ -30,6 +30,9 @@
  					<li>
  						<a href="{{url('danhsachnhansu')}}">Gửi tin nhắn</a>
  					</li>
+ 					<li>
+ 						<a href="{{url('hop-thu-den')}}">Cuộc hội thoại gần đây</a>
+ 					</li>
  				</ul>
  				<!-- /.nav-second-level -->
  			</li>
@@ -43,10 +46,13 @@
  				<a href="#"><i class="fa fa-exchange fa-fw"></i> Xử lý công việc<span class="fa arrow"></span></a>
  				<ul class="nav nav-second-level">
  					<li>
- 						<a href="#">Công việc nhận</a>
+ 						<a href="{{route('newWork')}}">Tạo mới công việc</a>
  					</li>
  					<li>
- 						<a href="#">Công việc giao</a>
+ 						<a href="{{route('receive',Auth::id())}}">Công việc nhận</a>
+ 					</li>
+ 					<li>
+ 						<a href="{{route('send',Auth::id())}}">Công việc giao</a>
  					</li>
  				</ul>
  				<!-- /.nav-second-level -->

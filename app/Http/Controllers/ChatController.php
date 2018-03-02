@@ -47,4 +47,9 @@ class ChatController extends Controller {
 		$chat->save();
 		return back()->withInput();
 	}
+	public function getInbox() {
+		$mess = Messenger::where('user_1', Auth::id())
+			->orwhere('user_2', Auth::id())	->distinct()	->get();
+		return view('chat.inbox', compact('mess'));
+	}
 }

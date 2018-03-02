@@ -22,7 +22,7 @@ class UserController extends Controller {
 			$user->password = bcrypt($request->password);
 			$user->save();
 		}
-		return redirect()->route('/');
+		return redirect('/');
 	}
 
 	public function dangnhap(Request $request) {

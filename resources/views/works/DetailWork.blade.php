@@ -5,10 +5,10 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">
-					<small>{{$news->title}}</small>
+					<small>{{$work->title}}</small>
 				</h1>
 			</div>
-			{!!$news->content!!}
+			{!!$work->content!!}
 		{{-- 	<p>File đính kèm: </p>
 			<a href="{{route('download',$news->file)}}">xem </a> --}}
 		</div>
