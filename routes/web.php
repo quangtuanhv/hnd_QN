@@ -8,7 +8,7 @@ Route::get('/', function () {
 			return view('user.login');
 		}
 	});
-Route::get('checkName', 'UserController@ajax');
+Route::get('checkName', 'UserController@ajaxLogin');
 Route::get('dangkytaikhoanmoi', function () {
 		return view('user.register');
 	});
@@ -30,9 +30,15 @@ Route::post('news/{id?}', 'NewsController@postNews')->name('postnews');
 Route::get('listNews', 'NewsController@getlistNews')->name('listNews');
 Route::get('detail-news/{id?}', 'NewsController@getdetail')->name('detailNews');
 Route::post('{url}', 'NewsController@getDown')->name('download');
+Route::get('xulyComment', 'NewsController@ajaxCmt');
+Route::get('edit-tin-tuc/{id?}', 'NewsController@edit');
+Route::post('edit-news/{id?}', 'NewsController@UpdateNews');
 //Công việc
 Route::get('danh-sach-cong-viec-nhan/{id?}', 'WorksController@DanhSachViecNhan')->name('receive');
 Route::get('tao-cong-viec-moi', 'WorksController@TaoViecMoi')->name('newWork');
 Route::post('postCongViec/{id?}', 'WorksController@postWork')->name('postCV');
 Route::get('danh-sach-cong-viec-giao/{id?}', 'WorksController@DanhSachViecGiao')->name('send');
 Route::get('chi-tiet-cong-viec/{id?}', 'WorksController@getCongViec');
+// lịch cộng tác
+Route::get('tao-moi-lich-cong-tac', 'TaskController@getLich');
+Route::get('tao-lich-cong-tac', 'TaskController@postLich')->name('postLich');

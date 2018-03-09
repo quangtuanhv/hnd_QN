@@ -14,7 +14,9 @@
 					<div class="panel-body">
 						<div class="row">
 							<div id="data">
-								{!! $send->links() !!}
+								<div class="text-center">
+									<small>{!! $send->links() !!}</small>
+								</div>
 								@foreach($send as $send)
 								<div class="chat">
 								@if($send->user_1== Auth::id())

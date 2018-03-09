@@ -23,9 +23,7 @@ class Profile extends Model {
 	public function messenger() {
 		return $this->hasMany('App\Messenger', 'user_2', 'id');
 	}
-	public function news() {
-		return $this->hasMany('App\News', 'profile_id', 'id');
-	}
+
 	public function works() {
 		return $this->hasMany('App\Work', 'user_id_receive', 'id');
 	}

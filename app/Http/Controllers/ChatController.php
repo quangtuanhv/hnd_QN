@@ -19,7 +19,7 @@ class ChatController extends Controller {
 				})->orwhere(function ($query) use ($id) {
 					$query->where('user_2', Auth::id())
 						->where('user_1', $id);
-				})->Paginate(4);
+				})->orderBy('id', 'desc')->SimplePaginate(4);
 			$info = Profile::where('id', $id)->first();
 
 			return view('chat.chat', compact('send', 'info'));
@@ -48,8 +48,7 @@ class ChatController extends Controller {
 		return back()->withInput();
 	}
 	public function getInbox() {
-		$mess = Messenger::where('user_1', Auth::id())
-			->orwhere('user_2', Auth::id())	->distinct()	->get();
+		$mess = Messenger::where('user_2', Auth::id())->orderBy('id', 'desc')->Paginate(5);
 		return view('chat.inbox', compact('mess'));
 	}
 }

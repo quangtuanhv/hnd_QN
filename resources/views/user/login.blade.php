@@ -56,6 +56,11 @@
                     <form role="form" action="{{route('dangnhap')}}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <fieldset>
+                            <div style="color: red;" class="form-group">
+                                @if(session('error'))
+                                {{session('error')}}
+                                @endif
+                            </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Username" name="name" type="text" id="name" autofocus>
                             </div>
@@ -93,7 +98,7 @@
             $("#name_error").html(data);
         });
     });
-   });
+});
 </script>
 </body>
 

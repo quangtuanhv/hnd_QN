@@ -28,7 +28,14 @@ class User extends Authenticatable {
 	public function works() {
 		return $this->hasMany('App\Work', 'user_id_send', 'id');
 	}
+	public function news() {
+		return $this->hasMany('App\News', 'profile_id', 'id');
+	}
 	public function profile() {
 		return $this->hasOne('App\Profile', 'user_id', 'id');
 	}
+	public function messenger() {
+		return $this->hasMany('App\Messenger', 'user_1', 'id');
+	}
+
 }

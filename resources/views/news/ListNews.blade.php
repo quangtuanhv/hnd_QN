@@ -12,26 +12,28 @@
 			<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 				<thead>
 					<tr align="center">
-						<th>ID</th>
+						<th>STT</th>
 						<th>Tiêu đề</th>
 						<th>Người đăng</th>
 						<th>Thời gian</th>
 						<th>Chi tiết</th>
-						<th>Phản hồi</th>
+
 						<th>Sửa</th>
 						<th>Xóa</th>
 					</tr>
 				</thead>
 				<tbody>
+					{{$i=1}}
 					@foreach($post as $post)
+
 					<tr class="odd gradeX" align="center">
-						<td>{{$post->id}}</td>
+						<td>{{$i,$i++}}</td>
 						<td>{{$post->title}}</td>
-						<td>{{$post->profile->fullname}}</td>
+						<td>{{$post->user->profile->fullname}}</td>
 						<td>{{$post->created_at}}</td>
 						<td class="center" ><i class="fa fa-info fa-fw" ></i><a href="{{route('detailNews',$post->id)}}">Chi tiết</a></td>
-						<td class="center" ><i class="fa fa-info fa-fw" ></i><a href="#">Phản hồi</a></td>
-						<td class="center"><i class="fa fa-pencil fa-fw" ></i> <a href="#">Edit</a></td>
+
+						<td class="center"><i class="fa fa-pencil fa-fw" ></i> <a href="{{url('edit-tin-tuc',$post->id)}}">Edit</a></td>
 						<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
 					</tr>
 					@endforeach

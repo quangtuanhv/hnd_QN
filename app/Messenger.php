@@ -11,4 +11,7 @@ class Messenger extends Model {
 	public function profile() {
 		return $this->belongsTo('App\Profile', 'user_2', 'id');
 	}
+	public function user() {
+		return $this->belongsTo('App\User', 'user_1', 'id');
+	}
 }

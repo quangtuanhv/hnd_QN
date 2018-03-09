@@ -22,7 +22,11 @@ class UserController extends Controller {
 			$user->password = bcrypt($request->password);
 			$user->save();
 		}
-		return redirect('/');
+		$chucVu = ChucVu::all();
+		$donVi  = DonVi::all();
+		$role   = Role::all();
+		$acc    = User::where('id', Auth::id())->first();
+		return view('user.newProfile', ['chucVu' => $chucVu, 'donVi' => $donVi, 'role' => $role, 'acc' => $acc]);
 	}
 
 	public function dangnhap(Request $request) {
@@ -32,14 +36,14 @@ class UserController extends Controller {
 			'password' => $request->password,
 		];
 		if (Auth::attempt($data)) {
-			$user = Profile::find(Auth::id());
+			$user = Profile::where('user_id', Auth::id())->first();
 			if (is_null($user)) {
 				return redirect()->route('updateProfile', ['id' => Auth::id()]);
 			} else {
 				return redirect('/');
 			}
 		} else {
-			return redirect('/');
+			return redirect('/')->with('error', 'bạn đã nhập sai tên đăng nhập hoặc mật khẩu');
 		}
 
 	}
@@ -52,7 +56,7 @@ class UserController extends Controller {
 			$chucVu = ChucVu::all();
 			$donVi  = DonVi::all();
 			$role   = Role::all();
-			$user   = Profile::where('id', $id)->first();
+			$user   = Profile::where('user_id', $id)->first();
 			if ($user == null) {
 				$acc = User::where('id', $id)->first();
 				return view('user.newProfile', ['chucVu' => $chucVu, 'donVi' => $donVi, 'role' => $role, 'acc' => $acc]);
@@ -79,7 +83,7 @@ class UserController extends Controller {
 		$user->donVi_id  = $req->donVi_id;
 		$user->role_id   = $req->role_id;
 		$user->save();
-		return redirect('dangkytaikhoanmoi');
+		return redirect('/');
 	}
 	public function getShowUser() {
 		if (Auth::check()) {
@@ -92,18 +96,19 @@ class UserController extends Controller {
 	}
 	public function getShow($id) {
 		if (Auth::check()) {
-			$user = Profile::where('id', $id)->first();
+			$user = Profile::where('user_id', $id)->first();
 
 			return view('user.detail', compact('user'));
 		} else {
 			return redirect('/');
 		}
 	}
-	public function ajax(Request $req) {
+	public function ajaxLogin(Request $req) {
 		$name = $_GET["name"];
 		$qr   = User::where('name', $name)->first();
 		if ($qr == null) {
 			echo "Tên đăng nhập không tồn tại !";
 		}
 	}
+
 }

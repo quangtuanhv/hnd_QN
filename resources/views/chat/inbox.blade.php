@@ -16,13 +16,17 @@
 							<div id="data">
 								<div class="chat_left">
 
-									@foreach($mess as $mess)
-									<a href="#">{{$mess->profile->fullname}}</a>
+									@foreach($mess as $m)
+									<a href="{{route('tinnhan',$m->user_1)}}">
+										{{$m->user->profile->fullname}}</a>
 									<br>
-									{{$mess->content}}
+										{{$m->content}}
 									<hr>
+
 									@endforeach
+{!! $mess->links() !!}
 								</div>
+
 							</div>
 						</div>
 					</div>

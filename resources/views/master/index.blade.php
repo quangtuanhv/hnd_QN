@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Quang Tuan Vo">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>E-Office</title>
 
     <!-- Bootstrap Core CSS -->
@@ -26,6 +27,8 @@
     <link href="{{asset('admin/bower_components/datatables-responsive/css/dataTables.responsive.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/profile.css')}}">
     <link rel="stylesheet" href="{{asset('css/footer.css')}}">
+    <link rel="stylesheet" href="{{asset('css/css.css')}}">
+    <script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
 </head>
 
 <body>
@@ -41,7 +44,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
