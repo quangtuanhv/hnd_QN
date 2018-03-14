@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Profile;
 use App\Work;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class WorksController extends Controller {
@@ -26,10 +27,10 @@ class WorksController extends Controller {
 		$work->status          = 1;
 		$work->file            = $req->file;
 		$work->save();
-		return redirect('/');
+		return redirect()->route('send',['id'=>Auth::id()])->with('success');
 	}
 	public function DanhSachViecGiao($id) {
-		$work = Work::where('user_id_send', $id)->with('user', 'profile')->get();
+		$work = Work::orderBy('id', 'desc')->where('user_id_send', $id)->get();
 		return view('works.ListSendWorks', compact('work'));
 	}
 	public function getCongViec($id) {

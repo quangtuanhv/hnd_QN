@@ -8,11 +8,14 @@
 					<small>Tin nội bộ</small>
 				</h1>
 			</div>
+			@if(session('success'))
+				<param class="kiemtra" value="true">
+			@endif
 			<!-- /.col-lg-12 -->
 			<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 				<thead>
 					<tr align="center">
-						<th>ID</th>
+						<th>STT</th>
 						<th>Người nhận việc</th>
 						<th>Tên công việc</th>
 						<th>Ngày giao</th>
@@ -23,9 +26,10 @@
 					</tr>
 				</thead>
 				<tbody>
+				<!-- {{$i=1}}-->
 					@foreach($work as $work)
 					<tr class="odd gradeX" align="center">
-						<td>{{$work->id}}</td>
+						<td>{{$i,$i++}}</td>
 						<td>{{$work->profile->fullname}}</td>
 						<td>{{$work->title}}</td>
 						<td>{{$work->receive_date}}</td>
@@ -50,4 +54,12 @@
 	</div>
 	<!-- /.container-fluid -->
 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var kt = $(".kiemtra").val();
+		if (kt) {
+		$.notify("Giao việc thành công", "success");
+		}
+	});
+</script>
 @endsection

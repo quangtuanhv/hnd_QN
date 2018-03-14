@@ -16,8 +16,11 @@ class CreateTasksTable extends Migration {
 				$table->text('content');
 				$table->time('gio');
 				$table->date('ngay');
+				$table->text('address');
+				$table->text('thanhphan');
 				$table->integer('profile_id');
 				$table->integer('user_id');
+				$table->integer('type');
 				$table->timestamps();
 			});
 	}

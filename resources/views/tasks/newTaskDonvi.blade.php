@@ -66,7 +66,7 @@ echo date('H:i');
 			var profile_id = $("#profile_id").val();
 			var diadiem = $("#diadiem").val();
 			var thanhphan = $("#thanhphan").val();
-			var type = {{$id}};
+			var type = {{$type->donVi->id}};
 			var url = "{{asset('tao-lich-cong-tac')}}";
 			// alert(content+gio+ngay+url);
 			$.ajax({
@@ -83,7 +83,7 @@ echo date('H:i');
 			})
 			document.getElementById("tencongviec").value="";
 			document.getElementById("diadiem").value="";
-			document.getElementById("thanhphan").value="";
+			document.getElementById("thanhphana").value="";
 			return false;
 		});
 	});

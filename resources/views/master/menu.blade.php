@@ -32,7 +32,7 @@
  						<a href="{{url('danhsachnhansu')}}">Gửi tin nhắn</a>
  					</li>
  					<li>
- 						<a href="{{url('hop-thu-den')}}">Cuộc hội thoại gần đây</a>
+ 						<a href="{{url('hop-thu-den')}}">Hộp thư đến</a>
  					</li>
  				</ul>
  				<!-- /.nav-second-level -->
@@ -41,12 +41,18 @@
  				<a href="#"><i class="fa fa-file-text-o fa-fw"></i> Văn bản pháp luật</a>
  			</li>
  			<li>
- 				<a href="#"><i class="fa fa-calendar fa-fw"></i> Lịch công tác</a>
+ 				<a href="#"><i class="fa fa-calendar fa-fw"></i> Lịch công tác<span class="fa arrow"></span></a>
  				<ul class="nav nav-second-level">
+ 					
  					<li>
- 						<a href="{{url('tao-moi-lich-cong-tac')}}">Tạo mới lịch công tác</a>
+ 						<a href="{{url('lich-cong-tac',Auth::id())}}">Lịch công tác tuần cơ quan</a>
  					</li>
-
+ 					<li>
+ 						<a href="{{url('lich-cong-tac-don-vi',Auth::id())}}">Lịch công tác tuần đơn vị</a>
+ 					</li>
+ 					<li>
+ 						<a href="{{url('lich-cong-tac',Auth::id())}}">Lịch công tác tuần cá nhân</a>
+ 					</li>
  				</ul>
  			</li>
  			<li>

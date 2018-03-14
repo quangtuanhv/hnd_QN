@@ -19,8 +19,8 @@
 						<th>Số điện thoại</th>
 						<th>Email</th>
 						<th>Chi tiết</th>
-						<th>Sửa</th>
-						<th>Xóa</th>
+						
+						{{-- <th>Xóa</th> --}}
 					</tr>
 				</thead>
 				<tbody>
@@ -33,8 +33,8 @@
 						<td>{{$user->phone}}</td>
 						<td>{{$user->email}}</td>
 						<td class="center" ><i class="fa fa-info fa-fw" ></i><a  data-toggle="modal" data-target="#{{$user->id}}""> Chi tiết</a></td>
-						<td class="center"><i class="fa fa-pencil fa-fw" ></i> <a href="{{route('updateProfile',$user->id)}}">Edit</a></td>
-						<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
+						{{-- <td class="center"><i class="fa fa-pencil fa-fw" ></i> <a href="{{route('updateProfile',$user->id)}}">Edit</a></td>
+						<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td> --}}
 					</tr>
 					@endforeach
 				</tbody>
@@ -72,14 +72,13 @@
 													<td>{{$user->fullname}}</td>
 												</tr>
 												<tr>
-													<td>Hire date:</td>
-													<td>06/23/2013</td>
+													<td>Đơn vị</td>
+													<td>{{$user->donVi->tenDonVi}}</td>
 												</tr>
 												<tr>
-													<td>Date of Birth</td>
-													<td>01/24/1988</td>
+													<td>Chức vụ</td>
+													<td>{{$user->chucVu->tenChucVu}}</td>
 												</tr>
-
 												<tr>
 													<tr>
 														<td>Giới tính</td>
@@ -106,9 +105,8 @@
 
 											</tbody>
 										</table>
-
-										<a href="#" class="btn btn-primary">My Sales Performance</a>
-										<a href="#" class="btn btn-primary">Team Sales Performance</a>
+										<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary" href="{{route('tinnhan',$user->id)}}"><i class="glyphicon glyphicon-envelope"></i></a>
+										
 									</div>
 								</div>
 							</div>
@@ -122,6 +120,6 @@
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		</div>
 	</div>
-@endforeach
+	@endforeach
 </div>
 @endsection

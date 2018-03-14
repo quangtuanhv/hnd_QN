@@ -8,6 +8,9 @@
 					<small>Tin nội bộ</small>
 				</h1>
 			</div>
+			@if(session('success'))
+				<param class="kiemtra" value="true">
+			@endif
 			<!-- /.col-lg-12 -->
 			<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 				<thead>
@@ -23,7 +26,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					{{$i=1}}
+					<!-- {{$i=1}}-->
 					@foreach($post as $post)
 
 					<tr class="odd gradeX" align="center">
@@ -44,4 +47,12 @@
 	</div>
 	<!-- /.container-fluid -->
 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var kt = $(".kiemtra").val();
+		if (kt) {
+		$.notify("Đăng bài thành công", "success");
+		}
+	});
+</script>
 @endsection

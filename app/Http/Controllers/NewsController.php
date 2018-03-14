@@ -25,7 +25,7 @@ class NewsController extends Controller {
 		$news->profile_id = $id;
 		$news->file       = $req->file;
 		$news->save();
-		return redirect('/');
+		return redirect('listNews')->with('success');
 	}
 	public function getlistNews() {
 		if (Auth::check()) {

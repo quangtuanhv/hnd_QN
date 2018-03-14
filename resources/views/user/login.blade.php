@@ -7,7 +7,8 @@
     <meta name="author" content="Quang Tuan Vo">
 
     <title>E-office</title>
-
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link href="admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -60,6 +61,9 @@
                                 @if(session('error'))
                                 {{session('error')}}
                                 @endif
+                                @if(session('notification'))
+                                {{session('notification')}}
+                                @endif
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Username" name="name" type="text" id="name" autofocus>
@@ -69,7 +73,7 @@
                                 <input class="form-control" placeholder="Password" name="password" type="password" id="password" value="">
                             </div>
 
-                            <input type="submit" name="submit" class="btn btn-lg btn-success btn-block">
+                            <input type="submit" name="submit" value="Đăng nhập" class="btn btn-lg btn-success btn-block">
                         </fieldset>
                     </form>
                 </div>

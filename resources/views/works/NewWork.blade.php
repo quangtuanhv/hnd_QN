@@ -37,11 +37,11 @@
 									</div>
 									<div class="form-group">
 										<label>Ngày nhận:</label>
-										<input type="date" name="receive" value="<?php echo date('Y-m-d');?>">
+										<input type="date" name="receive" id="day_1" value="<?php echo date('Y-m-d');?>">
 									</div>
 									<div class="form-group">
 										<label>Ngày hết hạn:</label>
-										<input type="date" name="deadline" value="<?php echo date('Y-m-d');?>">
+										<input type="date" name="deadline" id="day_2" value="<?php echo date('Y-m-d');?>" onchange="CheckDay()">
 									</div>
 									<div class="form-group">
 										<label>Nơi nhận việc:</label>
@@ -56,7 +56,7 @@
 										</select>
 
 									</div>
-									<button type="submit" class="btn btn-default">Giao việc</button>
+									<button id="myBtn" type="submit" class="btn btn-success">Giao việc</button>
 								</form>
 							</div>
 						</div>
@@ -66,6 +66,10 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+// xử lý ngày nhận phải lớn hơn ngày giao
+</script>
+
 <script type="text/javascript">
 	var button1 = document.getElementById( 'ckfinder-popup-1' );
 

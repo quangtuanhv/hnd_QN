@@ -14,26 +14,23 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller {
 	public function dangky(Request $request) {
 		$validatedData = $request->validate([
-				'name'     => 'required|string|max:255|unique:users',
-				'password' => 'required|string|min:6|confirmed', ]);
+			'name'     => 'required|string|max:255|unique:users',
+			'password' => 'required|string|min:6|confirmed', ]);
 		if ($validatedData) {
 			$user           = new User;
 			$user->name     = $request->name;
 			$user->password = bcrypt($request->password);
 			$user->save();
+
+			return redirect('/')->with('notification', 'Tạo tài khoản thành công đăng nhập với tài khoản vừa tạo');
 		}
-		$chucVu = ChucVu::all();
-		$donVi  = DonVi::all();
-		$role   = Role::all();
-		$acc    = User::where('id', Auth::id())->first();
-		return view('user.newProfile', ['chucVu' => $chucVu, 'donVi' => $donVi, 'role' => $role, 'acc' => $acc]);
 	}
 
 	public function dangnhap(Request $request) {
 
 		$data = [
-			'name'     => $request->name,
-			'password' => $request->password,
+		'name'     => $request->name,
+		'password' => $request->password,
 		];
 		if (Auth::attempt($data)) {
 			$user = Profile::where('user_id', Auth::id())->first();

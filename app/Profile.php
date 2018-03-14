@@ -28,4 +28,7 @@ class Profile extends Model {
 		return $this->hasMany('App\Work', 'user_id_receive', 'id');
 	}
 
+	public function task(){
+		return $this->hasMany('App\Task','profile_id','id');
+	}
 }

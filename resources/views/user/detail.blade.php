@@ -24,12 +24,12 @@
 											<td>{{$user->fullname}}</td>
 										</tr>
 										<tr>
-											<td>Hire date:</td>
-											<td>06/23/2013</td>
+											<td>Đơn vị</td>
+											<td>{{$user->donVi->tenDonVi}}</td>
 										</tr>
 										<tr>
-											<td>Date of Birth</td>
-											<td>01/24/1988</td>
+											<td>Chức vụ</td>
+											<td>{{$user->chucVu->tenChucVu}}</td>
 										</tr>
 
 										<tr>
@@ -59,8 +59,6 @@
 									</tbody>
 								</table>
 
-								<a href="#" class="btn btn-primary">My Sales Performance</a>
-								<a href="#" class="btn btn-primary">Team Sales Performance</a>
 							</div>
 						</div>
 					</div>

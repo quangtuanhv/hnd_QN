@@ -7,7 +7,8 @@
     <meta name="author" content="Quang Tuan Vo">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>E-Office</title>
-
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('admin/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -51,7 +52,8 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{asset('admin/bower_components/metisMenu/dist/metisMenu.min.js')}}"></script>
-
+    {{--  --}}
+    <script src="{{asset('js/notify.min.js')}}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{{asset('/admin/dist/js/sb-admin-2.js')}}"></script>
 
